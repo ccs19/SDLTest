@@ -1,12 +1,12 @@
 #include <SDL.h>
+#include <iostream>
 
 int main(int argc, char* args[])
 {
-	//Start SDL
-	SDL_Init(SDL_INIT_EVERYTHING);
-
-	//Quit SDL
+	if (SDL_Init(SDL_INIT_VIDEO) != 0){
+		std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
+		return 1;
+	}
 	SDL_Quit();
-
 	return 0;
 }
