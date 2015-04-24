@@ -1,5 +1,7 @@
 #include "MainWindow.h"
 #include <string>
+
+
 	MainWindow::MainWindow(){
 		initWindow();
 		initRenderer();
@@ -16,7 +18,7 @@
 	
 	
 	void MainWindow::initWindow(){
-		mainWindow = SDL_CreateWindow("Hello world!", 100, 100, 640, 480, SDL_WINDOWEVENT_SHOWN);
+		mainWindow = SDL_CreateWindow("Hello world!", 100, 100, 2560, 1440, SDL_WINDOWEVENT_SHOWN);
 		if (nullptr == mainWindow){
 			std::cout << "SDL_Window creation failed: " << SDL_GetError() << std::endl;
 			SDL_Quit();
@@ -39,7 +41,7 @@
 
 	void MainWindow::loadBitmap(){
 
-		std::string imagePath = getResourcePath() + "hello.bmp";
+		std::string imagePath = res_path::getResPath() + "hello.bmp";
 		bmp = SDL_LoadBMP(imagePath.c_str());
 		if (nullptr == bmp){
 			SDL_DestroyRenderer(renderer);
